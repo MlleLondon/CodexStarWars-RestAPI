@@ -30,3 +30,18 @@ CREATE TABLE personnage(
     image TEXT NOT NULL,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE espece(
+    id INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(75) NOT NULL,
+    description TEXT NOT NULL,
+    classification VARCHAR(75),
+    taille VARCHAR(75),
+    couleursCorps VARCHAR(150),
+    couleursPoils VARCHAR(150),
+    planete VARCHAR(75),
+    habitat VARCHAR(75),
+    langage VARCHAR(75),
+    image TEXT NOT NULL,
+    PRIMARY KEY(id)
+);
