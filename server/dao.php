@@ -98,5 +98,30 @@ class DAO {
 		header('Content-Type: application/json');
 		echo json_encode($response);
     }
+	
+	public function searchByName($name){
+		$query = "SELECT * FROM ".$this->resource." WHERE nom LIKE '%".$name."%'";
+		$response = array();
+		$result = mysqli_query($this->conn, $query);
+		if(mysqli_num_rows($result) > 0) {
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				$row = array_map(function($value){
+					if(is_string($value)) return ($value);
+					else return $value;
+				}, $row);
+				$response[] = $row;
+			}
+			header('Content-Type: application/json');
+			echo json_encode($response, JSON_PRETTY_PRINT);
+		} else {
+			$response = array(
+				'status' => 0,
+				'status_message' =>'Aucun enregistrement trouvé avec ce nom.'
+			);
+			header('Content-Type: application/json');
+			echo json_encode($response);
+		}
+	}
+	
 }
 ?>

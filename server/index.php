@@ -15,14 +15,10 @@ $dao = new DAO($conn, $resource);
 switch($request_method)
 {
     case 'GET':
-        // Retrive ressources
-        if(!empty($_GET["id"]))
-        {
-            $id=intval($_GET["id"]);
-            $dao->get($id);
-        }
-        else
-        {
+        if(!empty($_GET["name"])) {
+            $name = $_GET["name"];
+            $dao->searchByName($name);
+        } else {
             $dao->get();
         }
         break;

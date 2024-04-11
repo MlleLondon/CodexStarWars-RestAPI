@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 drop database if exists codexStarWars;
 create database codexStarWars;
 use codexStarWars;
 
->>>>>>> 2e477d7522586bc2cf1f71118df824460ee8d622
 CREATE TABLE planete(
     id INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(75) NOT NULL,
@@ -17,8 +14,6 @@ CREATE TABLE planete(
     population VARCHAR(75) NOT NULL,
     image TEXT NOT NULL,
     PRIMARY KEY(id)
-<<<<<<< HEAD
-=======
 );
 
 CREATE TABLE personnage(
@@ -49,5 +44,16 @@ CREATE TABLE espece(
     langage VARCHAR(75),
     image TEXT NOT NULL,
     PRIMARY KEY(id)
->>>>>>> 2e477d7522586bc2cf1f71118df824460ee8d622
+);
+
+CREATE TABLE vaisseau(
+    id INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(75) NOT NULL,
+    description TEXT NOT NULL,
+    longueur VARCHAR(75),
+    vitesse VARCHAR(75),
+    moteur VARCHAR(75),
+    equipage VARCHAR(75),
+    image TEXT NOT NULL,
+    PRIMARY KEY(id)
 );
